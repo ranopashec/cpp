@@ -1,6 +1,6 @@
 
 # FAMCS-PROG
-## [Algorithms](https://github.com/ranopashec/FAMCS-PROG/blob/main/ALGORITHMS.md)
+## [ALGORITHMS](https://github.com/ranopashec/FAMCS-PROG/blob/main/ALGORITHMS.md)
 
 ## Всем привет!
 Я Сёма C++ tg/vk/inst: @ranopashec и я просто готовлюсь к сессии на ПИ ФПМИ БГУ)
@@ -19,5 +19,6 @@
 - https://ru.algorithmica.org
 - https://brestprog.by/topics/
 - а так же литература и лекций Конах.
+### Всё что имеется можно найти по ссылке в самом верху этого файла
 
 
