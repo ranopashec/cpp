@@ -1,6 +1,6 @@
 
 # FAMCS-PROG
-#[ALGORITHMS](https://github.com/ranopashec/FAMCS-PROG/blob/main/ALGORITHMS.md)
+# [ALGORITHMS](https://github.com/ranopashec/FAMCS-PROG/blob/main/ALGORITHMS.md)
 
 ## Всем привет!
 ##### Я Сёма C++ tg,vk,inst - @ranopashec и я просто учусь на ПИ ФПМИ БГУ)
