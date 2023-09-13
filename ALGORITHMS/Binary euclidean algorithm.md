@@ -2,6 +2,7 @@
 
 
 ```c++
+#include <iostream>
 using namespace std;
 int main()
 {
@@ -57,4 +58,3 @@ int main()
 	return 0;
 }
 ```
-Да, да, знаю что код херня, но сори, я нубик.
