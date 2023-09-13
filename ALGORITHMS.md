@@ -11,7 +11,7 @@
 7. [Проверка числа на простоту](https://github.com/ranopashec/FAMCS-PROG/blob/main/ALGORITHMS/is%20prime.md)
 8. [Нахождение 3-х значных чисел без повторяющихся цифр (без использования операций деления)](https://github.com/ranopashec/FAMCS-PROG/blob/main/ALGORITHMS/three-digit%20numbers%20without%20repeating%20digits.md)
 9. [Вычисление квадратного корня числа по итерационной формуле с заданной точностью](https://github.com/ranopashec/FAMCS-PROG/blob/main/ALGORITHMS/square%20root%20of%20a%20number%20with%20a%20given%20accuracy.md)
-10. Числа Мерсенна
+10. [Числа Мерсенна](https://github.com/ranopashec/FAMCS-PROG/blob/main/ALGORITHMS/Mersenne%20prime.md)
 11. Совершенные числа
 12. Дружественные числа
 13. Числа Армстронга
