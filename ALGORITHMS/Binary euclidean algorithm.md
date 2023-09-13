@@ -1,7 +1,7 @@
 Ну что сказать, эта xxxня никому, кроме людей, притендующих на 10, не здалась, так как она не даёт ничего нового, а просто показывает, что вы знаете точно и сам [алгоритм](https://github.com/ranopashec/FAMCS-PROG/blob/main/ALGORITHMS/Euclidean%20algorithm.md) и C++, в частности раздел [бинарных опираторов](https://www.learncpp.com/cpp-tutorial/bitwise-operators/). Поехали!
 
 
-```cpp
+```c++
 #include <iostream>
 using namespace std;
 int main()
