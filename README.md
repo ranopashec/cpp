@@ -19,7 +19,7 @@
 
 
 ## ВЫЖИМКА РЕСУРСОВ ИЗ [ЭТОЙ](https://github.com/tayllan/awesome-algorithms#websites) РЕПКИ
-Информация:
+#### Информация:
 - https://ru.algorithmica.org
 - https://brestprog.by/topics/
 - https://algotree.org
@@ -27,7 +27,7 @@
 - https://github.com/PetarV-/Algorithms
 - https://github.com/ProAlgos/ProAlgos-Cpp
 - https://github.com/algorithmica-org/implementations
-Задачи:
+#### Задачи:
 - [LeetCode](https://leetcode.com)
 - [CodeWars](https://www.codewars.com)
 - https://cses.fi/problemset/
