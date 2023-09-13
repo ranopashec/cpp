@@ -11,7 +11,7 @@ void repnumcount (int num){
 				count++; 
 			num /=10 ; 	
 		}
-		if(c!=0) 
+		if(count!=0) 
 		std::cout << digit << " is mentioned " << count << "times";
 }
 ```
