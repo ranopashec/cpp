@@ -3,7 +3,7 @@
 ## [ALGORITHMS](https://github.com/ranopashec/FAMCS-PROG/blob/main/ALGORITHMS.md)
 
 ## Всем привет!
-Я Сёма C++ tg/vk/inst: @ranopashec и я просто готовлюсь к сессии на ПИ ФПМИ БГУ)
+Я Сёма C++ tg,vk,inst - @ranopashec и я просто учусь на ПИ ФПМИ БГУ)
 ### Во-первых вам необходимо знать синтаксис языка C++, который можно изучить при помощи курсов или книжек. Моими рекомендациями здесь будут:
 - Текстовый [курс](https://www.learncpp.com) с задачами на английском
 - Текстовый [курс](https://ravesli.com/uroki-cpp/) на русском
