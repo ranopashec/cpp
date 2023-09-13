@@ -40,14 +40,14 @@ gcd(x,0)=x, для любого x∈ℕ.
 ## Варианты реализации на C++ и псевдокоде:
 
 ### итеративная (через loop) - cамая быстрая реализация алгоритма:
-
+```
 function gcd(a, b)
     while b ≠ 0
         t := b
         b := a mod b
         a := t
     return a
-
+```
 ```cpp
 int gcd(int a, int b) {
     if (a < b) {
