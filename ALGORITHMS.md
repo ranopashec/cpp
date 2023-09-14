@@ -9,13 +9,12 @@
 7. [Проверка числа на простоту](#is-prime)
 8. [Нахождение 3-х значных чисел без повторяющихся цифр (без использования операций деления)](#three-digit-numbers-without-repeating-digits)
 9. [Вычисление квадратного корня числа по итерационной формуле с заданной точностью](#square-root-with-a-given-accuracy)
-10. [Числа Мерсенна](#mersenne-prime)
-11. Совершенные числа
-12. Дружественные числа
-13. Числа Армстронга
-14. Числа Смитта
-15. Числа Фибоначчи
-16. Для заданного натурального числа определить количество
+10. [Совершенные числа](#perfect-numbers)
+11. Дружественные числа
+12. Числа Армстронга
+13. Числа Смитта
+14. Числа Фибоначчи
+15. Для заданного натурального числа определить количество
 единичных бит в его представлении
 17. По заданному натуральному числу ( 4 байта ) получить новое число, переставив младшую цифру исходного числа на место впереди старшей
 18. Перевод чисел в различные системы счисления
@@ -24,8 +23,11 @@
 ---
 # Глава 1: Алгоритмы обработки чисел
 ## swap-two-variables 
-
-Поменять местами значения двух переменных - это на столько просто, что даже нельзя назвать алгоритмом. Это скорее функция, которая меняет местами значения переменных, которая даже имеется в стандартной библиотеке -[std::swap](https://en.cppreference.com/w/cpp/algorithm/swap). Реализация функции, которая изменяет отправленные в неё значения перед вашими глазами:
+- problem
+Поменять местами значения двух переменных 
+- algorithm 
+Это на столько просто, что даже нельзя назвать алгоритмом. Это скорее функция, которая меняет местами значения переменных, которая даже имеется в стандартной библиотеке - [std::swap](https://en.cppreference.com/w/cpp/algorithm/swap). 
+- c++ implementation
 
 ```c++
 void swap (int& x, int& y){
@@ -36,13 +38,18 @@ void swap (int& x, int& y){
 ```
 ---
 ## euclidean-algorithm
-Алгоритм Евклида - базовый алгоритм нахождения НОД(GCD) (или НОК) двух (можно и больше) чисел:
-The Euclidean algorithm is based on the principle that the greatest common divisor of two numbers does not change if the larger number is re- placed by its difference with the smaller number. For example, 21 is the GCD of 252 and 105 (as 252 = 21 × 12 and 105 = 21 × 5), and the same number 21 is also the GCD of 105 and 252 − 105 = 147. Since this replacement reduces the larger of the two numbers, repeating this process gives successively smaller pairs of numbers until the two numbers become equal. - В изначальном виде он назывался “взаимным вычитанием”, так как заключался в поочерёдном вычитании меньшего числа из большего, пока одно из них не станет равным 0. Сегодня чаще всего вместо вычитания используется взятие остатка от деления, но суть алгоритма сохранилась.
-### Алгоритм:
+- problem
+
+Найти НОД(GCD) (или НОК) двух (можно и больше) чисел
+
+- algorithm
+
+The Euclidean algorithm is based on the principle that the greatest common divisor of two numbers does not change if the larger number is replaced by its difference with the smaller number. For example, 21 is the GCD of 252 and 105 (as 252 = 21 × 12 and 105 = 21 × 5), and the same number 21 is also the GCD of 105 and 252 − 105 = 147. Since this replacement reduces the larger of the two numbers, repeating this process gives successively smaller pairs of numbers until the two numbers become equal. - В изначальном виде он назывался “взаимным вычитанием”, так как заключался в поочерёдном вычитании меньшего числа из большего, пока одно из них не станет равным 0. Сегодня чаще всего вместо вычитания используется взятие остатка от деления, но суть алгоритма сохранилась.
+
 Алгоритм заключается в построении ряда чисел следующего вида (a>b): a,b,r1,r2,…,rn, где каждое последующее число является остатком от деления предпредыдущего на предыдущее: r1 = a mod b, r2=b mod r1, … rn = rn−2 mod rn−1. Ряд заканчивается, когда остаток от деления предпоследнего числа на последнее становится равным 0:
 rn−1 mod rn = 0. В таком случае утверждается, что: gcd(a,b) = rn
-### Доказательство:
 
+Доказательство:
 Сначала докажем следующее: наборы общих делителей (a,b) и (b,r1) полностью совпадают:
 Рассмотрим произвольный (не обязательно наибольший) общий делитель a и b:
 t - общий делитель a и b.
@@ -63,10 +70,9 @@ gcd(x,0)=x, для любого x∈ℕ.
 Следовательно, gcd(a,b) = rn, что и требовалось доказать.
 
 Если вы ничего не поняли, не страшно, можете просто забрать документы и идти проходить курсы по figma. Ладно шучу, тут всё просто. Это всего лишь алгоритм нахождения нода, который использовали ещё в древней греции. Вам даже не обязательно знать почему это так работает, достаточно знать, что это просто работает.
+- c++ and pseudocode implementation 
 
-### Варианты реализации на C++ и псевдокоде:
-
-#### итеративная (через loop) - cамая быстрая реализация алгоритма:
+итеративная (через loop) - cамая быстрая реализация алгоритма:
 ```
 function gcd(a, b)
     while b ≠ 0
@@ -88,7 +94,7 @@ int gcd(int a, int b) {
     return a;
 }
 ```
-#### Рекурсивная реализация:
+Рекурсивная реализация:
 
 ```cpp
 int gcd(int a, int b) {
@@ -111,20 +117,25 @@ int gcd(int a, int b) {
     return b ? gcd(b, a % b) : a;
 }
 ```
-#### НОК (LCM)
+- НОК (LCM) c++ implementation 
 
 ```cpp
 int lcm(int a, int b) {
     return a / gcd(a, b) * b; 
 }
 ```
-#### НОД и НОК для произвольного количества чисел
+- НОД и НОК для произвольного количества чисел
+
 `gcd(a,b,c,d)=gcd(gcd(gcd(a,b),c),d)`
 `lcm(a,b,c,d)=lcm(lcm(lcm(a,b),c),d)`
 
 ---
 ## binary-euclidean-algorithm
-Это не отдельный алгоритм, а просто реализация того, что выше, при помощи [бинарных опираторов](https://www.learncpp.com/cpp-tutorial/bitwise-operators/).
+- problem
+
+Написать алгоритм Евклида при помощи [бинарных опираторов](https://www.learncpp.com/cpp-tutorial/bitwise-operators/)
+
+- c++ implementation 
 ```c++
 #include <iostream>
 using namespace std;
@@ -184,11 +195,13 @@ int main()
 ```
 
 ---
-
-
-
 ## reverse-integer
-Если число было 1234, то станет 4321
+- problem
+
+Перевернуть целое число так что если было 1234, то станет 4321
+
+- algorithm -
+- c++ implementation 
 ```cpp
 int reverse (int num)
 {
@@ -202,9 +215,11 @@ int reverse (int num)
 }
 ```
 ---
-
 ## repeated-digits-in-integer
+- problem
 Найти количество повторений каждой цифры у заданного натурального числа не используя массивов.
+- algorithm-
+- c++ implementation
 ```cpp
 void repnumcount (int num){
 	int tempnum = num, count = 0;
@@ -221,8 +236,16 @@ void repnumcount (int num){
 }
 ```
 ---
-
 ## all-devisors
+- problem
+
+Найти все натуральные делители целого числа
+
+- algorithm
+
+Loop который пробегает по всем значениям от 2 до n/2 и проверяет, делит ли d число n нацело.
+
+- c++ implementation 
 ```cpp
 void foo (int n){
 // d - число на которое проверяется делимость
@@ -236,12 +259,18 @@ void foo (int n){
 	cout << n << endl;  // само число тоже является своим же делителем
 }
 ```
-for-loop который пробегает по всем значениям от 2 до n/2 и проверяет, делит ли d число n нацело.
+
 
 ---
-
 ## is-prime
+- problem
+
+Создать алгоритм проверки натурального числа на простоту
+
+- algorithm 
+
 Чтобы проверить, является ли натуральное число x простым, достаточно просто проверить, существует ли в отрезке [2 ; √x] число, на которое делится x. Это достаточно очевидно: если бы существовало такое число y, что x делится на y и √x<y<x, то гарантированно существовало бы и число z=x/y, которое было бы меньше корня, а значит, изначального условия хватило бы для проверки на простоту. Чтобы понять это можно просто подставить числа вместо x и y, например 100 и 20.
+- c++ implementation
 ```cpp
 bool is_prime(int x) {
     for (int i = 2; i <= sqrt(x); i++) {
@@ -255,14 +284,22 @@ bool is_prime(int x) {
 ```
 ---
 ## three-digit-numbers-without-repeating-digits
+- problem
+
+Написать алгоритм нахождения всех трёхзначных чисел, не имеющих повторяющихся чисел
+
+- algorithm 
+
+Всё очень просто. Для каждого числа сотен, десятков и единиц находим число, где сотни не равны десяткам, десятки единицам и единицы сотням.
+- c++ implementation 
 ```cpp
 void foo{
-int i,j,k;
-for(i=1;i<=9;i++){
-	for(j=0;j<=9;j++){
-		for(k=0;k<=9;k++){
-			if( (i != j) && (i != k) && (j != k) ) 
-			cout << i*100+j*10+k << " ";
+int hundreds, dozens, units;
+for(hundreds=1;hundreds<=9;hundreds++){
+	for(dozens=0;dozens<=9;dozens++){
+		for(units=0;units<=9;units++){
+			if( (hundreds != dozens) && (hundreds != units) && (dozens != units) ) 
+			cout << hundreds*100 + dozens*10 + units << " ";
 			    
 		}
 	}
@@ -274,7 +311,13 @@ for(i=1;i<=9;i++){
 
 
 ## square-root-with-a-given-accuracy
+- problem
+
+Найти квадратный корень числа с заданной точностью
+- algorithm 
+
 xn = x/2 + a/(2 * x) - это просто формула, по которой находится квадратный корень с заданной точностью. Где a - accurtncy (точность) 
+- c++ implementation 
 
 ```cpp
 #include <сmath> // for abs
@@ -293,22 +336,103 @@ int aqrt (double num, double acc)
 }
 ```
 ---
-## mersenne-prime
+## perfect-numbers
+- problem
+
+Найти все [совершенные числа](https://www.youtube.com/watch?v=GuoAz5OMon8) меньше какого-то числа
+Найти первые n совершенных чисел. 
+Проверить число на совершенность.
+
+- algorithm 
+
+just bruteforce
+- c++ implementation
+Выводит все совершенные числа, не превышающие n.
 ```cpp
-{//поиск чисел Мерсенна
- int m=10;
- for (int i=1;i<=m;i++)
- {
-  int r=1,x=2;
-  int n=i;
-  while  (n != 0)
-  {
-    if (n % 2 == 1) r=r*x;
-    x=x*x;
-    n=n/2;
-  }
-  r=r-1;
-  cout << r << endl;
-} }
+void perfectNumbers (int n) 
+{
+	int sum = 1;
+	for (int i = 3; i <= n; i++) // пробегаем по всем числам от i до n
+	{
+
+	    sum = 1 ;
+	    for (int div = 2; div <= i / 2 ; d++) // div от divisor(делитель)
+	    
+	        if (i % div == 0)                // если число является делителем
+		        sum = sum + div;             // суммируем его с предыдущими делителями
+
+	    if (i == sum )                       // если сумма делителей числа равна самому числу, то мы нащли то, что искали.
+	        std::cout << i << '\n';
+	}
+}
 ```
----
+
+Выводит первых n совершенных чисел
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main (){// первых n совершенных чисел
+
+int n,p,i,flag,ch;
+
+n=6;
+
+p=2;i=1;
+
+while (i<=n)
+
+{
+
+//простое или нет
+
+int j=2;
+
+flag=1; //да
+
+while ((j<=p/2) && (flag))
+
+if ( !(p%j))
+
+flag=0; //нет
+
+else ++j;
+
+if ((flag)||(p==2)||(p==3))
+
+{
+
+// ch=step(2,p-1)*(step(2,p)-1);
+
+int step=1;
+
+int m=p-1;
+
+int x=2;
+
+while (m != 0)
+
+{
+
+if (m % 2 == 1) step=step*x;
+
+x=x*x;
+
+m=m / 2;
+
+}
+
+ch=step*(step*2-1);
+
+cout << ch << endl;
+
+i++;
+
+}
+
+p++; }
+
+return 0; }
+```
+Я МАНАЛ ЭТО ДЕКОДИТЬ
