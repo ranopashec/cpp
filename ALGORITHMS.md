@@ -246,7 +246,7 @@ void foo (int n){
 // е - конец проверки (на середине числа)
 	cout << "1" << endl; // 1 является делителем любого натурального числа
 
-	for(int d = 2, int e = n / 2; div <= e ; d++){
+	for(int d = 2, int e = n / 2; d <= e ; d++){
 	if ( n % d == 0) cout << d << endl;
 	}
     
