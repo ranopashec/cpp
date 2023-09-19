@@ -1,17 +1,19 @@
-# CONTENT:
-### Глава 1: Введение. Теоретико-числовые алгоритмы
+# content
+## [Предысловие](#preface)
+## [Глава 1: Понятие асимптотической сложности](#asymptotic-complexity)
+## [Глава 2: Алгоритмы обработки чисел |  Аогебра](#number-processing-algorithms)
 1. [Поменять местами значения двух переменных](#swap-two-variables)
-2. [Алгоритм Евклида](#euclidean-algorithm)
-3. [Бинарный Алгоритм Евклида*](#binary-euclidean-algorithm)
+2. [Алгоритм Евклида | Нахождение НОД и НОК](#euclidean-algorithm)
+3. Расширенный алгоритм Евклида
 4. [Переворачивание целого числа](#reverse-integer)
 5. [Повторяемые цифры в числе](#repeated-digits-in-integer)
 6. [Нахождение всех делителей натурального числа](#all-devisors)
 7. [Проверка числа на простоту](#is-prime)
 8. [Нахождение 3-х значных чисел без повторяющихся цифр (без использования операций деления)](#three-digit-numbers-without-repeating-digits)
 9. [Вычисление квадратного корня числа по итерационной формуле с заданной точностью](#square-root-with-a-given-accuracy)
-10. [Совершенные числа](#perfect-numbers)
-11. [Числа Мерсенна](#mersenne-numbers)
-12. Дружественные числа
+10. [Числа Мерсенна](#mersenne-numbers)
+11. [Совершенные числа](#perfect-numbers) 
+12. [Дружественные числа](#friend-numbers)
 13. Числа Армстронга
 14. Числа Смитта
 15. Числа Фибоначчи
@@ -19,36 +21,43 @@
 единичных бит в его представлении
 17. По заданному натуральному числу ( 4 байта ) получить новое число, переставив младшую цифру исходного числа на место впереди старшей
 18. Перевод чисел в различные системы счисления
-#### Для доп. изучения:
 19. Факторизация(разложение на простые множители)
+### [Операции по модулю](#mod)
+20. [Бинарное возведение числа в степень](#bin-pow)
+21. Вычисление факториала по модулю
 ---
-# Глава 1: Введение. Алгоритмы обработки чисел
-Данные алгоритмы представляют собой скорее обычные задачи, на знание синтаксиса языка, нежели алгоритмы, но всё равно достойны вашего внимания, если вы интересуетесь математикой.
-## swap-two-variables 
-- problem
+### preface
+Спасибо каждому, кто открыл данную замечательную markdown заметку. Она представляет собой подробный конспект всех изученных автором решений алгоритмических задач: базовых, олимпиадных, собесовых. Задачи разбросаны по заметке врассыпную, структурность есть только в  [оглавлении](#content). Текст заметки подразумевает, что вы подробно ознакомлены с синтаксисом C++ и что-нибудь слышали о математике. Я постараюсь без воды описывать сами алгоритмы. Математические доказательства работы алгоритма при желании можно гуглить, я буду давать лишь описание работы и реализацию на c++ с моим разбором. Ссылки на источники находятся в самом конце заметки. Если у задачи (PROBLEM) не написан алгоритм (ALGORITHM), тогда он либо написан комментариями в реализации (C++ IMPLEMENTATION), либо его работа очевидна и написана в самом условии задачи. Задачи рассортированы по алгоритмам. Основным отличием от подобных сайтов с описанием алгоритмов является объяснение их реализации, а не только её наличие, как на ресурсах, указанных в источниках.
 
+---
+### asymptotic-complexity
+[link 1](https://brestprog.by/topics/complexity/)
+[link 2](https://www.geeksforgeeks.org/types-of-asymptotic-notations-in-complexity-analysis-of-algorithms/)
+[link 3](https://en.wikipedia.org/wiki/Big_O_notation)
+
+---
+### number-processing-algorithms
+(Алгоритмы обработки чисел)
+Данные алгоритмы представляют собой скорее обычные задачи, на знание синтаксиса языка, нежели алгоритмы, но всё равно достойны вашего внимания, если вы интересуетесь математикой. Столкнуться с задачами на эти алгоритмы вы можете на первом курсе института, когда только начнёте изучать программирование.
+### swap-two-variables 
+#### PROBLEM:
 Поменять местами значения двух переменных 
-- algorithm 
-
+#### ALGORITHM:
 Это на столько просто, что даже нельзя назвать алгоритмом. Это скорее функция, которая меняет местами значения переменных, которая даже имеется в стандартной библиотеке - [std::swap](https://en.cppreference.com/w/cpp/algorithm/swap). 
-- c++ implementation
-
+#### C++ IMPLEMENTATION:
 ```c++
-void swap (int& x, int& y){
+void swap (int& x, int& y){ // & - ссылка(reference) на переменную. Необходимо передавать ссылку а не копию, чтобы изменить значение переменных.
   int temp = x;
   x = y;
   y = temp;
 }
 ```
 ---
-## euclidean-algorithm
-- problem
-
+### euclidean-algorithm
+#### PROBLEM:
 Найти НОД(GCD) (или НОК) двух (можно и больше) чисел
-
-- algorithm
-
-The Euclidean algorithm is based on the principle that the greatest common divisor of two numbers does not change if the larger number is replaced by its difference with the smaller number. For example, 21 is the GCD of 252 and 105 (as 252 = 21 × 12 and 105 = 21 × 5), and the same number 21 is also the GCD of 105 and 252 − 105 = 147. Since this replacement reduces the larger of the two numbers, repeating this process gives successively smaller pairs of numbers until the two numbers become equal. - В изначальном виде он назывался “взаимным вычитанием”, так как заключался в поочерёдном вычитании меньшего числа из большего, пока одно из них не станет равным 0. Сегодня чаще всего вместо вычитания используется взятие остатка от деления, но суть алгоритма сохранилась.
+#### ALGORITHM:
+```The Euclidean algorithm is based on the principle that the greatest common divisor of two numbers does not change if the larger number is replaced by its difference with the smaller number. For example, 21 is the GCD of 252 and 105 (as 252 = 21 × 12 and 105 = 21 × 5), and the same number 21 is also the GCD of 105 and 252 − 105 = 147. Since this replacement reduces the larger of the two numbers, repeating this process gives successively smaller pairs of numbers until the two numbers become equal.``` - В изначальном виде алгоритм назывался “взаимным вычитанием”, так как заключался в поочерёдном вычитании меньшего числа из большего, пока одно из них не станет равным 0. Сегодня чаще всего вместо вычитания используется взятие остатка от деления, но суть алгоритма сохранилась.
 
 Алгоритм заключается в построении ряда чисел следующего вида (a>b): a,b,r1,r2,…,rn, где каждое последующее число является остатком от деления предпредыдущего на предыдущее: r1 = a mod b, r2=b mod r1, … rn = rn−2 mod rn−1. Ряд заканчивается, когда остаток от деления предпоследнего числа на последнее становится равным 0:
 rn−1 mod rn = 0. В таком случае утверждается, что: gcd(a,b) = rn
@@ -74,9 +83,7 @@ gcd(x,0)=x, для любого x∈ℕ.
 Следовательно, gcd(a,b) = rn, что и требовалось доказать.
 
 Если вы ничего не поняли, не страшно, можете просто забрать документы и идти проходить курсы по figma. Ладно шучу, тут всё просто. Это всего лишь алгоритм нахождения нода, который использовали ещё в древней греции. Вам даже не обязательно знать почему это так работает, достаточно знать, что это просто работает.
-- c++ and pseudocode implementation 
-
-итеративная (через loop) - cамая быстрая реализация алгоритма:
+#### PSEUDOCODE:
 ```
 function gcd(a, b)
     while b ≠ 0
@@ -85,6 +92,9 @@ function gcd(a, b)
         a := t
     return a
 ```
+#### C++ IMPLEMENTATION:
+##### итеративная (через loop) - cамая быстрая реализация алгоритма:
+
 ```cpp
 int gcd(int a, int b) {
     if (a < b) { // этот кондишн необходим, только если мы не знаем что больше a или b, ведь нам надо, чтобы второе число было меньше.
@@ -98,7 +108,7 @@ int gcd(int a, int b) {
     return a;
 }
 ```
-Рекурсивная реализация:
+##### Рекурсивная реализация:
 
 ```cpp
 int gcd(int a, int b) {
@@ -121,27 +131,20 @@ int gcd(int a, int b) {
     return b ? gcd(b, a % b) : a;
 }
 ```
-- НОК (LCM) c++ implementation 
+#### НОК (LCM) C++ IMPLEMENTATION:
 
 ```cpp
 int lcm(int a, int b) {
     return a / gcd(a, b) * b; 
 }
 ```
-- НОД и НОК для произвольного количества чисел
+#### НОД и НОК для произвольного количества чисел
 
 `gcd(a,b,c,d)=gcd(gcd(gcd(a,b),c),d)`
 `lcm(a,b,c,d)=lcm(lcm(lcm(a,b),c),d)`
-
----
-## binary-euclidean-algorithm
-- problem
-
-Написать алгоритм Евклида при помощи [бинарных опираторов](https://www.learncpp.com/cpp-tutorial/bitwise-operators/)
-
-- c++ implementation 
-```c++
-using namespace std;
+##### реализация при помощи битовых операторов
+```cpp
+using namespace std; // признак говнокода)
 int gcd(int x, int y)
 {
 
@@ -166,9 +169,8 @@ int gcd(int x, int y)
 							 // луп, который делит y на 2 пока y чётное.
 			while ((y & 1) == 0)
 				y >>= 1;     
-	    
 							 // теперь x и y оба нечетны, разность их четная
-     
+							 
 			if (x < y)       // Если x < y, 
 				y -= x;      // то делаем y равным y - x
 			else
@@ -188,15 +190,16 @@ int gcd(int x, int y)
 	return nod;
 }
 ```
+#### COMPLEXITY:
+##### time: 
+O( log(min(a,b)) ) - кол-во операций умножения
 
 ---
-## reverse-integer
-- problem
-
+### reverse-integer
+#### PROBLEM:
 Перевернуть целое число так что если было 1234, то станет 4321
-
-- algorithm -
-- c++ implementation 
+#### ALGORITHM:
+#### C++ IMPLEMENTATION 
 ```cpp
 int reverse (int num)
 {
@@ -210,11 +213,11 @@ int reverse (int num)
 }
 ```
 ---
-## repeated-digits-in-integer
-- problem
+### repeated-digits-in-integer
+#### PROBLEM:
 Найти количество повторений каждой цифры у заданного натурального числа не используя массивов.
-- algorithm-
-- c++ implementation
+#### ALGORITHM:
+#### C++ IMPLEMENTATION:
 ```cpp
 void repnumcount (int num){
 	int tempnum = num, count = 0;
@@ -231,16 +234,12 @@ void repnumcount (int num){
 }
 ```
 ---
-## all-devisors
-- problem
-
+### all-devisors
+#### PROBLEM:
 Найти все натуральные делители целого числа
-
-- algorithm
-
+#### ALGORITHM:
 Loop который пробегает по всем значениям от 2 до n/2 и проверяет, делит ли d число n нацело.
-
-- c++ implementation 
+#### C++ IMPLEMENTATION 
 ```cpp
 void foo (int n){
 // d - число на которое проверяется делимость
@@ -255,17 +254,13 @@ void foo (int n){
 }
 ```
 
-
 ---
-## is-prime
-- problem
-
+### is-prime
+#### PROBLEM:
 Создать алгоритм проверки натурального числа на простоту
-
-- algorithm 
-
+#### ALGORITHM:
 Чтобы проверить, является ли натуральное число x простым, достаточно просто проверить, существует ли в отрезке [2 ; √x] число, на которое делится x. Это достаточно очевидно: если бы существовало такое число y, что x делится на y и √x<y<x, то гарантированно существовало бы и число z=x/y, которое было бы меньше корня, а значит, изначального условия хватило бы для проверки на простоту. Чтобы понять это можно просто подставить числа вместо x и y, например 100 и 20.
-- c++ implementation
+#### C++ IMPLEMENTATION:
 ```cpp
 bool is_prime(int x) {
     for (int i = 2; i <= sqrt(x); i++) {
@@ -278,15 +273,12 @@ bool is_prime(int x) {
 }
 ```
 ---
-## three-digit-numbers-without-repeating-digits
-- problem
-
+### three-digit-numbers-without-repeating-digits
+#### PROBLEM:
 Написать алгоритм нахождения всех трёхзначных чисел, не имеющих повторяющихся чисел
-
-- algorithm 
-
+#### ALGORITHM:
 Всё очень просто. Для каждого числа сотен, десятков и единиц находим число, где сотни не равны десяткам, десятки единицам и единицы сотням.
-- c++ implementation 
+#### C++ IMPLEMENTATION 
 ```cpp
 void foo{
 int hundreds, dozens, units;
@@ -303,21 +295,17 @@ for(hundreds=1;hundreds<=9;hundreds++){
 }
 ```
 ---
-
-
-## square-root-with-a-given-accuracy
-- problem
-
+### square-root-with-a-given-accuracy
+#### PROBLEM:
 Найти квадратный корень числа с заданной точностью
-- algorithm 
-
+#### ALGORITHM:
 xn = x/2 + a/(2 * x) - это просто формула, по которой находится квадратный корень с заданной точностью. Где a - accurtncy (точность) 
-- c++ implementation 
+#### C++ IMPLEMENTATION: 
 
 ```cpp
 #include <сmath> // for abs
 
-int aqrt (double num, double acc)
+int asqrt (double num, double acc)
 { 
 	double x, xn = num / 2;
 	
@@ -331,39 +319,34 @@ int aqrt (double num, double acc)
 }
 ```
 ---
-## mersenne-numbers
-- problem
-
+### mersenne-numbers
+#### PROBLEM:
 Найти первые n [чисeл Мерсенна](https://www.youtube.com/watch?v=Zdqur0Cstbg)
-- algorithm
-- c++ implementation
+#### ALGORITHM:
+#### C++ IMPLEMENTATION
 ```cpp
 int mersenne (int n){
 	for ( int i; i <= n; i++)
 		std::cout << pow(2, i) -1;
 }
 ```
-## perfect-numbers
-- problem
-
-Найти все [совершенные числа](https://www.youtube.com/watch?v=GuoAz5OMon8) меньше какого-то числа
-Найти первые n совершенных чисел. 
-
-- algorithm 
-
-just bruteforce
-- c++ implementation
-
-Выводит все совершенные числа, не превышающие n.
+---
+### perfect-numbers
+#### PROBLEM:
+1) Найти все [совершенные числа](https://www.youtube.com/watch?v=GuoAz5OMon8) меньше какого-то числа
+2) Найти первые n совершенных чисел.
+#### ALGORITHM:
+bruteforce
+#### C++ IMPLEMENTATION:
+1) Выводит все совершенные числа, не превышающие n
 ```cpp
-void perfectNumbers (int n)
-
+void perfectNumbers (uint64_t n)
 {
-	int sum = 1;
-	for (int i = 6; i <= n; i++) // пробегаем по всем числам от i до n
+	uint64_t sum = 1;
+	for (uint64_t i = 6; i <= n; i++) // пробегаем по всем числам от i до n
 	{
 		sum = 1 ;
-		for (int div = 2; div*div <= i; div++) // div от divisor(делитель)
+		for (uint64_t div = 2; div*div <= i; div++) // div от divisor(делитель)
 		{
 			if (i % div == 0) // если число является делителем
 				sum = sum + div + (i / div); // суммируем его с предыдущими делителями
@@ -373,17 +356,16 @@ void perfectNumbers (int n)
 	}
 }
 ```
-
-Выводит первых n совершенных чисел
+2) Выводит первых n совершенных чисел
 ```cpp
 void perfectNumbers (int n)
 
 {
 	int c = 0; // счётчик найденных совершенных чисел
-	for (unsigned long long i = 6;c < n;i+=2) // пробегаем по всем числам от i до n
+	for (uint64_t i = 6;c < n;i+=2) // пробегаем по всем числам от i до n
 	{
-		int sum = 1;
-		for (unsigned long long div = 2; div*div <= i; div++) // div от divisor(делитель)
+		uint64_t sum = 1;
+		for (uint64_t div = 2; div*div <= i; div++) // div от divisor(делитель)
 		{
 			if (i % div == 0) // если число является делителем
 			sum = sum + div + (i / div); // суммируем его с предыдущими делителями
@@ -398,7 +380,100 @@ void perfectNumbers (int n)
 }
 ```
 
-## friend-numbers
-## armstrong-numbers
-## smith-numbers
-## fibonacci-numbers
+### friend-numbers
+#### PROBLEM:
+1) Найти все пары дружественных чисел, меньше числа n. 
+2) Найти первые n пар дружественных чисел
+#### ALGORITHM:
+Дружественные - это такие два числа, каждое из которых равно сумме делителей второго. Наименьшие из дружественных чисел 220 и 284.
+Воспользуемся обычным bruteforce с вложенным циклом (nested loop или цикл в цикле). Делители чисел найдём так же через цикл, как в предыдущей задаче.
+#### C++ IMPLEMENTATION:
+1)
+```cpp
+void friendNums(int64_t n)
+{
+	int64_t sum = 1;
+	for (int64_t i1 = 220 ; i1 <= n; i1++) // пробегаем по всем числам от i до n
+	{
+		sum = 1 ;
+		for (int64_t div = 2; div*div <= i1; div++) // div от divisor(делитель)
+		{
+			if (i1 % div == 0) // если число является делителем
+				sum = sum + div + (i1 / div); // суммируем его с предыдущими делителями
+		}
+		
+		int64_t i2 = i1; // добавляем счётчике для второго числа
+		
+		while (i2 <= n) 
+		{
+			++i2;
+			if (i2 == sum) // среди чисел i2 > i1 находим то, которое равно сумме делителей числа i1
+			{
+				sum = 1 ; // аналогично суммируем его делители
+				for (int64_t div = 2; div*div <= i2; div++) 
+				{
+					if (i2 % div == 0) 
+						sum = sum + div + (i2 / div);
+				}
+				
+				if (i1 == sum) // если i1 равно сумме делителей i2, то мы нашли нашего друга
+				std::cout << i1 << " & " << i2 << '\n';
+				
+				break; // прерываем цикл while, цикл for продолжает поиск до n
+			}
+		}
+	}
+}
+/* Можно использовать uint64_t или любой другой int в зависимости от размеров n. Чем больше int, тем дольше работает программа (использует больше памяти).
+```
+2) Распишу позже, но если кому нужна подсказка, то делаем всё аналогично [совершенным числам](#perfect-numbers)
+### armstrong-numbers
+### smith-numbers
+### fibonacci-numbers
+### mod
+Остаток от деления числа a на m:
+a mod m = a % m 
+Свойства;
+(a + b) mod m = ((a mod m) + (b mod m)) mod m;
+(a − b) modm = ((a mod m) −(b mod m)) mod m;
+(ab) mod m = ((a mod m) ∗ (b mod m)) mod m;
+При желании доказательства всех свойств можно обнаружить в интернете.
+### bin-pow
+#### PROBLEM:
+Возвести число a в степень n и вернуть остаток от деления результата на c. Количество операций должно быть равно log(b);
+#### ALGORITHM:
+Для чётного n верно: a^n = a^(n/2) * a^(n/2)
+Для нечётного: a^n = a * a^(n-1).
+Получаем рекурсивную формулу реализованную ниже, работающую за O(log n)
+#### C++ IMPLEMENTATION:
+##### Рекурсивная:
+```cpp
+int binpow (uint64_t a, uint64_t n, uint64_t c) {
+	if (n == 0) 
+		return 1;
+	if (n % 2 == 1)
+		return binpow (a, n-1, c) * a % c;
+	else {
+		uint64_t b = binpow (a, n/2, c);
+		return b * b % c;
+	}
+}
+```
+##### Нерекурсивная:
+```cpp
+int BinPow (uint64_t a, uint64_t  b, uint64_t c )  
+    uint64_t res = 1;  
+    while (b){  
+        if (b & 1) {  
+            res *= a;  
+            res %=c;  
+            --b;  
+        }  
+        else {  
+             a *= a;  
+             a %= c;  
+             b >>= 1;  
+        }  
+        }  
+    return res;
+```
