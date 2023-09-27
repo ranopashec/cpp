@@ -19,11 +19,10 @@
 - https://brestprog.by/topics/
 - https://algotree.org
 - https://github.com/tayllan/awesome-algorithms#websites
-##### задачи:
-К собесам:
+##### задачи к собесам:
 - [LeetCode](https://leetcode.com)
 - [CodeWars](https://www.codewars.com)
 - [Coderun](https://coderun.yandex.ru/catalog)
-К олимпам:
+##### задачи к олимпам:
 - [codeforces](https://codeforces.com)
 - [cses](https://cses.fi/problemset/)
