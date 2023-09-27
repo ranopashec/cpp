@@ -1,6 +1,6 @@
 # [ALGORITHMS](https://github.com/ranopashec/FAMCS-PROG/blob/main/ALGORITHMS.md)
 ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^
-## Всем привет! Я Сёма C++ tg: @ranopashec и я просто учусь на ПИ ФПМИ БГУ)
+## Всем привет! Я Сёма (tg: @ranopashec) и я просто учусь на ПИ ФПМИ БГУ)
 ##### Cинтаксис языка C++ можно изучить при помощи курсов или книжек. Моими рекомендациями здесь будут:
 - Текстовый [курс](https://www.learncpp.com) с задачами на английском
 - Текстовый [курс](https://ravesli.com/uroki-cpp/) на русском
