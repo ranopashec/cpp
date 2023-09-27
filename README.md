@@ -23,6 +23,7 @@
 К собесам:
 - [LeetCode](https://leetcode.com)
 - [CodeWars](https://www.codewars.com)
+- [Coderun](https://coderun.yandex.ru/catalog)
 К олимпам:
 - [codeforces](https://codeforces.com)
 - [cses](https://cses.fi/problemset/)
