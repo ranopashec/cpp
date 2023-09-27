@@ -4,7 +4,7 @@
 ##### Cинтаксис языка C++ можно изучить при помощи курсов или книжек. Моими рекомендациями здесь будут:
 - Текстовый [курс](https://www.learncpp.com) с задачами на английском
 - Текстовый [курс](https://ravesli.com/uroki-cpp/) на русском
-- Текстовый [курс]([https://ravesli.com/uroki-cpp/](https://academy.yandex.ru/handbook/cpp) Яндекса на русском
+- Текстовый [курс](https://academy.yandex.ru/handbook/cpp) Яндекса на русском
 - [Канал](https://www.youtube.com/playlist?list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb) на английском
 ##### Для работы вам понадобятся сайты-референсы, где вы будете смотреть как работает конкретная функция из стандартной библиотеки:
 -  [сайт-референс-1](https://en.cppreference.com/w/)
