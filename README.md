@@ -7,8 +7,8 @@
 - Текстовый [курс](https://academy.yandex.ru/handbook/cpp) Яндекса на русском
 - [Канал](https://www.youtube.com/playlist?list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb) на английском
 ##### Для работы вам понадобятся сайты-референсы, где вы будете смотреть как работает конкретная функция из стандартной библиотеки:
--  [сайт-референс-1](https://en.cppreference.com/w/)
--  [сайт-референс-2](https://cplusplus.com/reference/)
+-  [сайт-референс](https://en.cppreference.com/w/)
+-  [сайт-референс](https://cplusplus.com/reference/)
 -  [книга-референс](https://books.goalkicker.com/CPlusPlusBook/)
 ##### Дополнительно было бы полезно ознакомится со слепой печатью [тык](https://www.typingstudy.com/list_of_free_touch_typing_software_and_online_resources)
 ## я всё знаю, давай учить алгосы!
