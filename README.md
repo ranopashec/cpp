@@ -1,4 +1,4 @@
-# [MY NOTE](https://github.com/ranopashec/FAMCS-PROG/blob/main/ALGORITHMS.md)
+# [MY NOTE](https://github.com/ranopashec/FAMCS-PROG/blob/main/DEATHNOTE.md)
 ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ 
 ## Всем привет!
 Я Сёма (tg: @ranopashec) и я просто учусь на ПИ ФПМИ БГУ.
