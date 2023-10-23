@@ -6,7 +6,8 @@ char (*c)(int p2); // b)
 ```
 ## 2) 
 очев. 
-## 3) // photo
+## 3)
+[photo](https://github.com/ranopashec/FAMCS-PROG/blob/main/TESTS/1/photo_2023-10-23_17-48-44.jpg)
 ## 4) 
 Целой переменной S присвоить значение минимальной цифры целого числа:
 ```cpp
