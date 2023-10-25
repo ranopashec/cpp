@@ -200,3 +200,165 @@ for (int j = n - 1; j >= 0; --j) { // матрица mxn, m - номер стр�
 ```
 ## 14) 
 Нарисовать блок-схему слияния двух упорядоченных по ублаванно массивов вешественных чисел.
+
+# Вариант 2 (от tg: @pro_100_vova)
+
+/// TASK 1 /// 
+a) Если после фор стоит ; то ошибку, иначе: 
+i=0
+i=1
+i=2
+i=3
+i=4
+
+b) 0103040
+
+c) ничего не выведет
+
+d) yes
+
+/// TASK 2 ///
+c) const char* pc3 (указатель на константу, константный указатель: char* const pc3)
+
+/// TASK 3 ///
+double(*func)(double* m, int size);
+
+/// TASK 4 ///
+
+/// TASK 5 ///
+int sum_k (int k) {
+    int res = 0;
+    res += k % 10;
+    while (k > 9) {
+        k /= 10;
+    }
+    res += k;
+    return res;
+}
+
+/// TASK 6 ///
+int rec_sum(int k) {
+    if (k < 10)
+    {
+        return k;
+    } else {
+        return k % 10 + rec_sum(k / 10);
+    }
+}
+
+
+/// TASK 7 ///
+    int N = 5;
+    int sum = 0;
+    for (int i = 1; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
+            for (int k = 0; k < 10; k += 2){
+                if (i + j + k == N) {
+                    sum++;
+                }
+            }
+        }
+    }
+
+
+
+/// TASK 8 ///
+    const int n = 8;
+    int m[n];
+    for (int i = 0; i < n; i++) {
+        m[i] = rand() % (300 - 150 + 1) + 150;
+    }
+
+    for (int i = 0; i < n; i++) {
+        cout << m[i] << " ";
+    }
+    cout << '\n';
+
+    for (int i = 0; i < n / 4; i++) {
+        swap(m[i], m[n / 2 - 1 - i]);
+    }
+
+    for (int i = n / 2; i < n / 2 + n/ 4; i++) {
+        swap(m[i], m[n - 1 - i + n / 2]);
+    }
+
+    for (int i = 0; i < n; i++) {
+        cout << m[i] << " ";
+    }
+
+
+/// TASK 9 ///
+    int matrix[5][5];
+    for(int i = 1; i <= 5; i++) {
+        for (int k = 0; k < 5 - i; k++) {
+            *(*(matrix + i - 1) + k) = 0;
+        }
+        *(*(matrix + i - 1) + 5 - i) = i * i;
+        for (int m = 6 - i; m < 5; m++) {
+            *(*(matrix + i - 1) + m) = 0;
+        }
+    }
+
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            std::cout << setw(2) << right << *(*(matrix + i) + j) << ' ';
+        }
+        std::cout << std::endl;
+    }
+
+
+// TASK 10 ///
+    int n = 5;
+    int **matrix;
+    matrix = new int *[n];
+    for (int i = 0; i < n; i++) {
+        matrix[i] = new int[n];
+    }
+
+    for (int i = 1; i <= n; i++) {
+        for (int j = 0; j < i; j++) {
+            *(*(matrix + i - 1) + j) = n - i + 1;
+        }
+    }
+
+    for (int i = 1; i <= n; i++) {
+        for (int j = 0; j < i; j++) {
+            cout << *(*(matrix + i - 1) + j) << ' ';
+        }
+        std::cout << std::endl;
+    }
+
+/// TASK 11 ///
+//by ranopashec
+    int n = 10;
+    int arr[n];
+    int arr_copy[n];
+    for (int i = 0; i < n; i++) {
+        int num;
+        std::cin >> num;
+        arr[i] = num;
+        arr_copy[i] = num;
+    }
+    for (int i = 1; i < n - 1; i++) {
+        arr[i] = arr_copy[i - 1] + arr_copy[i + 1];
+    }
+
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+
+/// TASK 12 ///
+    int minn = -1; int row = 0
+    for (int i = 0; i < mSize; i++) {
+        for (int j = 0; j < nSize; j++) {
+            if ((*(*(matrix + i) + j)) > 0 && ((*(*(matrix + i) + j)) < minn || mmin == - 1)) {
+                mmin = (*(*(matrix + i) + j));
+                row = i;
+            }
+        }
+    }
+    if (minn == -1) {
+        cout << "there are no positive";
+    } else {
+        cout << row;
+    }
