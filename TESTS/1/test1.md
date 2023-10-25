@@ -353,7 +353,7 @@ int rec_sum(int k) {
     for (int i = 0; i < n; i++) {
         cout << arr[i] << " ";
     }
-    ```
+```
 
 /// TASK 12 ///
 ```cpp
