@@ -224,7 +224,7 @@ c) const char* pc3 (указатель на константу, констант
 double(*func)(double* m, int size);
 
 /// TASK 4 ///
-
+```cpp
 /// TASK 5 ///
 int sum_k (int k) {
     int res = 0;
@@ -235,8 +235,10 @@ int sum_k (int k) {
     res += k;
     return res;
 }
+```
 
 /// TASK 6 ///
+```cpp
 int rec_sum(int k) {
     if (k < 10)
     {
@@ -245,9 +247,11 @@ int rec_sum(int k) {
         return k % 10 + rec_sum(k / 10);
     }
 }
+```
 
 
 /// TASK 7 ///
+```cpp
     int N = 5;
     int sum = 0;
     for (int i = 1; i < 10; i++) {
@@ -259,10 +263,10 @@ int rec_sum(int k) {
             }
         }
     }
-
-
+```
 
 /// TASK 8 ///
+```cpp
     const int n = 8;
     int m[n];
     for (int i = 0; i < n; i++) {
@@ -285,9 +289,10 @@ int rec_sum(int k) {
     for (int i = 0; i < n; i++) {
         cout << m[i] << " ";
     }
-
+```
 
 /// TASK 9 ///
+```cpp
     int matrix[5][5];
     for(int i = 1; i <= 5; i++) {
         for (int k = 0; k < 5 - i; k++) {
@@ -305,9 +310,10 @@ int rec_sum(int k) {
         }
         std::cout << std::endl;
     }
-
+```
 
 // TASK 10 ///
+```cpp
     int n = 5;
     int **matrix;
     matrix = new int *[n];
@@ -327,9 +333,10 @@ int rec_sum(int k) {
         }
         std::cout << std::endl;
     }
-
+```
 /// TASK 11 ///
 //by ranopashec
+```cpp
     int n = 10;
     int arr[n];
     int arr_copy[n];
@@ -346,8 +353,10 @@ int rec_sum(int k) {
     for (int i = 0; i < n; i++) {
         cout << arr[i] << " ";
     }
+    ```
 
 /// TASK 12 ///
+```cpp
     int minn = -1; int row = 0
     for (int i = 0; i < mSize; i++) {
         for (int j = 0; j < nSize; j++) {
@@ -362,3 +371,4 @@ int rec_sum(int k) {
     } else {
         cout << row;
     }
+```
