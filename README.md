@@ -23,6 +23,7 @@
 - [codeforces](https://codeforces.com)
 - [cses](https://cses.fi/problemset/)
 ##### первоисточники:
+- https://visualgo.net/en
 - https://ru.algorithmica.org
 - http://e-maxx.ru/algo/
 - https://brestprog.by/topics/
