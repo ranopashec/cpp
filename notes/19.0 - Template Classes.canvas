@@ -1,0 +1,33 @@
+{
+	"nodes":[
+		{"type":"text","text":"Template classes","id":"ea325a7a475b3a08","x":-207,"y":-44,"width":187,"height":50,"color":"6"},
+		{"type":"text","text":"```cpp\ntemplate <typename T> // added\nclass Array\n{\nprivate:\nint m_length{};\n    T* m_data{}; \npublic:\n    // ...constructors, destructors, etc...\n    T& operator[](int index);\n};\n// member functions defined outside the class need their own template declaration\ntemplate <typename T>\nT& Array<T>::operator[](int index)\n{\n    assert(index >= 0 && index < m_length);\n    return m_data[index];\n}\n```","id":"204e6fbde8e055cd","x":80,"y":-245,"width":559,"height":452},
+		{"type":"text","text":"- An integral type\n- An enumeration type\n- A pointer or reference to a class object\n- A pointer or reference to a function\n- A pointer or reference to a class member function\n- std::nullptr_t\n- A floating point type (since C++20)","id":"2f37284d0e68e4c6","x":406,"y":233,"width":394,"height":247},
+		{"type":"text","text":"template non-type parameter","id":"843d962b7a7a97ed","x":80,"y":332,"width":293,"height":50,"color":"6"},
+		{"type":"text","text":"```cpp\ntemplate <typename T, int size> // size is an integral non-type parameter\nclass StaticArray\n{\nT m_array[size] {};\npublic:\nT* getArray();\n};\n// Showing how a function for a class with a non-type parameter is defined outside of the class\ntemplate <typename T, int size>\nT* StaticArray<T, size>::getArray()\n{\n    return m_array;\n}\n```","id":"bb249a448573ac7d","x":860,"y":179,"width":707,"height":401},
+		{"type":"text","text":"```cpp\ntemplate <>\nvoid Storage<double>::print()\n{\n    std::cout << std::scientific << m_value << '\\n';\n}\n```","id":"046bd28e69b2b57c","x":-1220,"y":-122,"width":565,"height":156},
+		{"type":"text","text":"(sometimes called a full or explicit function template specialization) creates a specialized version of the function for desired type.","id":"16c06e8e5fcadd2c","x":-1220,"y":59,"width":565,"height":73},
+		{"type":"text","text":"function template specialization","id":"89f2b71e25672c96","x":-600,"y":70,"width":300,"height":50,"color":"6"},
+		{"type":"text","text":"```cpp\ntemplate <typename T>\nclass Storage {/*class definition*/};\n\n// Custom constructor and destructor\n\ntemplate <>\nStorage<char*>::Storage(char* const value)\n{\n    if (!value)\n        return;\n    int length{ 0 };\n    while (value[length] != '\\0')\n        ++length;\n    ++length;\n    m_value = new char[length];\n    for (int count = 0; count < length; ++count)\n        m_value[count] = value[count];\n}\ntemplate <>\nStorage<char*>::~Storage()\n{\n    delete[] m_value;\n}\n```","id":"9782ca0c2cd9e753","x":-1220,"y":-720,"width":565,"height":560},
+		{"type":"text","text":"Class template specialization","id":"cea98a59985e18d2","x":-600,"y":332,"width":300,"height":50,"color":"6"},
+		{"type":"text","text":"allows us to specialize a template class for a particular data type (or data types, if there are multiple template parameters)","id":"8cc0bba582f6b690","x":-1220,"y":317,"width":565,"height":81},
+		{"type":"text","text":"```cpp\ntemplate <>\nclass Storage8<bool> \n{/* class definition*/};\n```","id":"c3be71eda0c2ccd9","x":-1220,"y":460,"width":565,"height":120},
+		{"id":"b325b99c2313defd","type":"text","text":"# Partial template specialization","x":-575,"y":640,"width":275,"height":50,"color":"2"},
+		{"id":"5e5c1ad51997c68e","type":"text","text":"# Partial template specialization for pointers","x":-575,"y":720,"width":275,"height":60,"color":"2"}
+	],
+	"edges":[
+		{"id":"bb8fa937a5f4a44b","fromNode":"ea325a7a475b3a08","fromSide":"right","toNode":"204e6fbde8e055cd","toSide":"left","toEnd":"none","color":"6"},
+		{"id":"ee5db513d8cd07e5","fromNode":"ea325a7a475b3a08","fromSide":"bottom","toNode":"843d962b7a7a97ed","toSide":"left","color":"6"},
+		{"id":"927352200fd5f94f","fromNode":"843d962b7a7a97ed","fromSide":"right","toNode":"2f37284d0e68e4c6","toSide":"left","toEnd":"none","color":"6"},
+		{"id":"10574ed39fb37dd6","fromNode":"2f37284d0e68e4c6","fromSide":"right","toNode":"bb249a448573ac7d","toSide":"left","color":"6"},
+		{"id":"62dee6b5d1c1b887","fromNode":"ea325a7a475b3a08","fromSide":"bottom","toNode":"89f2b71e25672c96","toSide":"right","color":"6"},
+		{"id":"128aeb679a9763a6","fromNode":"89f2b71e25672c96","fromSide":"left","toNode":"16c06e8e5fcadd2c","toSide":"right","toEnd":"none","color":"6"},
+		{"id":"9dd87eaab3bdfa59","fromNode":"16c06e8e5fcadd2c","fromSide":"top","toNode":"046bd28e69b2b57c","toSide":"bottom","color":"6"},
+		{"id":"b2c78b41222403c5","fromNode":"046bd28e69b2b57c","fromSide":"top","toNode":"9782ca0c2cd9e753","toSide":"bottom","color":"6"},
+		{"id":"53bdefc4e3a9aa3c","fromNode":"ea325a7a475b3a08","fromSide":"bottom","toNode":"cea98a59985e18d2","toSide":"right","color":"6"},
+		{"id":"089e7c771e655774","fromNode":"cea98a59985e18d2","fromSide":"left","toNode":"8cc0bba582f6b690","toSide":"right","toEnd":"none","color":"6"},
+		{"id":"f1e4bf9389ab6bcf","fromNode":"8cc0bba582f6b690","fromSide":"bottom","toNode":"c3be71eda0c2ccd9","toSide":"top"},
+		{"id":"a6d9fda4edd61e7e","fromNode":"ea325a7a475b3a08","fromSide":"bottom","toNode":"b325b99c2313defd","toSide":"right","color":"2","label":"INCOMPLETE"},
+		{"id":"955b0f5e8048884e","fromNode":"b325b99c2313defd","fromSide":"bottom","toNode":"5e5c1ad51997c68e","toSide":"top","color":"2"}
+	]
+}
