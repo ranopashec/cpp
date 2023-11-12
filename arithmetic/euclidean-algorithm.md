@@ -1,4 +1,4 @@
-## euclidean-algorithm
+## 
 #### PROBLEM:
 Найти НОД(GCD) (или НОК) двух (можно и больше) чисел
 #### ALGORITHM:
