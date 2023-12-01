@@ -14,19 +14,20 @@ matrix::matrix(size_t mi, size_t ni) : m(mi), n(ni) {
     }
 }
 matrix& matrix::operator=(const matrix& mat){
-    if (p = mat.p){
+    if (p == mat.p){
         return *this;
     }
     this->~matrix();
     m = mat.m;
     n = mat.n;
-    p = new double *[mat.m];
+    p = new double *[m];
     for (size_t i = 0; i < m; ++i) {
         p[i] = new double[n]{};
         for (size_t j = 0; j < n; ++j) {
-            p[i][j] = mat.p[m][j];
+            p[i][j] = mat.p[i][j];
         }
     }
+    return *this;
 }
 
 
@@ -43,10 +44,12 @@ matrix::matrix(const matrix &mat) {
 }
 
 matrix::~matrix() {
-    for (size_t i = 0; i < m; ++i) {
-        delete p[i];
+    if (p != nullptr) {
+        for (size_t i = 0; i < m; ++i) {
+            delete p[i];
+        }
+        delete p;
     }
-    delete p;
 }
 
 // составные операторы присваивания;
