@@ -16,10 +16,10 @@ private:
 
 class ForwardList {
 private:
-    struct Book {
+    struct Film {
         std::string Name;
         std::string Author;
-        Book *Next;
+        Film *Next;
     };
     void Clone(const ForwardList &);
 public:
@@ -38,8 +38,8 @@ public:
     void ForEach(void foo(const std::string& name, const std::string& author)) const;
     void Erase();
 private:
-    Book *First;
-    Book *Last;
+    Film *First;
+    Film *Last;
 };
 
 void Print(const std::string& name, const std::string& author);
