@@ -17,7 +17,7 @@ ForwardList::~ForwardList(){
     Erase();
 }
 void ForwardList::InsertFirst(const std::string &name, const std::string &author){
-    Book *B = new Book;
+    Film *B = new Film;
     B->Name = name;
     B->Author = author;
     B->Next = First;
@@ -27,7 +27,7 @@ void ForwardList::InsertFirst(const std::string &name, const std::string &author
     First = B;
 }
 void ForwardList::InsertLast(const std::string& name, const std::string & author){
-        Book *B = new Book;
+        Film *B = new Film;
         B->Name = name;
         B->Author = author;
     if (Last != nullptr) {
@@ -47,7 +47,7 @@ void ForwardList::DeleteFirst(){
         throw Exception("No first to delete");
     }
     if (First != Last) {
-        Book *B = First;
+        Film *B = First;
         First = First->Next;
         delete B;
     } else {
@@ -61,13 +61,13 @@ void ForwardList::DeleteLast(){
         throw Exception("No last to delete");
     }
     if (First != Last) {
-        auto book = First;
-        while (book->Next != Last) {
-            book = book->Next;
+        auto film = First;
+        while (film->Next != Last) {
+            film = film->Next;
         }
-        book->Next = nullptr;
+        film->Next = nullptr;
         delete Last;
-        Last = book;
+        Last = film;
     } else {
         delete First;
         First = nullptr;
@@ -76,8 +76,8 @@ void ForwardList::DeleteLast(){
 }
 
 void ForwardList::Clone(const ForwardList &oth){
-    for (auto book = oth.First; book != nullptr; book  = book->Next){
-        InsertLast(book->Name, book->Author);
+    for (auto film = oth.First; film != nullptr; film  = film->Next){
+        InsertLast(film->Name, film->Author);
     }
 }
 
@@ -121,7 +121,7 @@ bool ForwardList::Contains(const std::string &name, const std::string &author, s
     }
 }
 void ForwardList::Print() const{
-    Book* B = First;
+    Film* B = First;
     if (B == nullptr)
         std::cout << "list is empty\n";
     if (B != nullptr) {
@@ -133,7 +133,7 @@ void ForwardList::Print() const{
     }
 }
 void ForwardList::Erase() {
-    Book *p, *q;
+    Film *p, *q;
     p = First;
     while (p != nullptr) {
         q = p->Next;
@@ -145,14 +145,14 @@ void ForwardList::Erase() {
 }
 
 void ForwardList::ForEach(void foo(std::string& name, std::string& author)){
-    Book* B = First;
+    Film* B = First;
     while (B != nullptr) {
         foo(B->Name, B->Author);
         B = B->Next;
     }
 }
 void ForwardList::ForEach(void foo(const std::string& name, const std::string& author)) const{
-    Book* B = First;
+    Film* B = First;
     while (B != nullptr) {
         foo(B->Name, B->Author);
         B = B->Next;
