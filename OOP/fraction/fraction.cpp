@@ -159,6 +159,7 @@ std::ostream &operator<<(std::ostream &strm, const Fraction &a) {
     return strm;
 }
 
+/* can read 2/5 to fraction */
 std::istream &operator>>(std::istream &is, Fraction &a) {
     std::string str;
     getline(is, str);
