@@ -53,9 +53,9 @@ public:
             }
         }
     }
-    void DeleteFirst(){
+    bool DeleteFirst(){
         if (First == nullptr) {
-            throw Exception("No first to delete");
+            return false;
         }
         if (First != Last) {
             Node *N = First;
@@ -66,10 +66,11 @@ public:
             First = nullptr;
             Last = nullptr;
         }
+        return true;
     }
-    void DeleteLast(){
+    bool DeleteLast(){
         if (Last == nullptr){
-            throw Exception("No last to delete");
+            return false;
         }
         if (First != Last) {
             auto node = First;
@@ -84,6 +85,7 @@ public:
             First = nullptr;
             Last = nullptr;
         }
+        return true;
     }
     bool Delete(const T info){
         auto prev = First;
