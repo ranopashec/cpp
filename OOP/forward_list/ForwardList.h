@@ -168,7 +168,7 @@ private:
 
 template<class T>
 void Print(const T& info){
-    std::cout << info;
+    std::cout << info << '\n';
 }
 
 
