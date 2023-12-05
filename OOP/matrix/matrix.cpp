@@ -148,7 +148,7 @@ matrix operator-(const matrix a, const matrix b) {
 // умножение матриц;
 matrix operator*(const matrix a, const matrix b) {
     {
-        if (a.m != b.n || a.n != b.m) {
+        if (a.n != b.m) {
             throw Exception{"not equal to multiply"};
         }
         matrix ret{a.m, b.n};
