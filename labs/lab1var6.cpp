@@ -1,22 +1,6 @@
 #include <iostream>
 int main(){
-    int s = 1123411;
-    {
-        int tmp = s;
-        int arr[10];
-        for (int i = 0; i < 10; ++i) {
-            arr[i] = 0;
-        }
-        int mx = 0;
-        int i = 0;
-        while (tmp > 0) {
-            int k = tmp % 10;
-            ++arr[k];
-            if (arr[k] > arr[mx]) mx = k;
-            tmp /= 10;
-        }
-        std::cout << mx << '\n';
-    }
+    int s = 1200002;
     {
         int mx = 0;
         int mxi = 0;
@@ -28,24 +12,45 @@ int main(){
                 tmp /= 10;
                 if (tmp2 == i) ++cnt;
             }
-            if (cnt > mx) mx = cnt, mxi = i;
+            if (cnt > mx) 
+                mx = cnt, 
+                mxi = i;
         }
         std::cout << mxi << '\n';
     }
-    /*
-    int mx;
-    _asm {
-        mov ecx, 10
-        mov esi, 0
-        xor eax, eax
-        loop1:
-            
-
-        loop initarr
+    {
+        int mxi = 0;
+        int mx = 0;
+        _asm{
+	        mov ecx, 10  ; loop counter
+	        mov esi, 0   ; cur_i
+	    Lup:
+		    mov ebx, s   ; ebx = s
+		    mov edi, 0   ; edi = cur_cnt
+		Inlup:
+		    cmp ebx, 0   ; if s <= 0
+		    jle OutLup   ; end while
+		    mov eax, ebx ; eax = s
+            mov ebx, 10  ; ebx = 10
+            xor edx, edx ; clear edx
+            div ebx      ; eax = s/10 edx = s%10 
+            mov ebx, eax ; ebx = s/10
+            mov eax, edx ; eax = s%10
+		    cmp eax, esi ; if eax == esi (cur_i)
+			je IncCnt    ; goto IncCnt
+			jmp InLup    ; else goto InLup
+		IncCnt:
+			inc edi      ; ++cur_cnt
+			cmp edi, edx ; if cur_cnt > mx
+			jg ChangeMx  ; goto CnhangeMx
+ 			jmp InLup    ; else goto InLup
+		ChangeMx:
+			mov mx, edi  ; mx = cur_cnt
+			mov mxi, esi ; mxi = cur_i
+		OutLup:
+		    inc esi      ; ++cur_i
+	    loop Lup         ; end outer loop
+        }
+        std::cout << mxi;
     }
-    std::cout << mx;
-    */
-	
-
-
 }
