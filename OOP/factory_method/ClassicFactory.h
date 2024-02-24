@@ -1,5 +1,5 @@
-#ifndef DZ2_CLASSICFACTORY_H
-#define DZ2_CLASSICFACTORY_H
+#ifndef CLASSICFACTORY_H
+#define CLASSICFACTORY_H
 #include "Pets.h"
 #include "memory"
 namespace cf{
@@ -44,4 +44,4 @@ namespace cf{
     };
 
 }
-#endif //DZ2_CLASSICFACTORY_H
+#endif 
