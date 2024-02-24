@@ -1,7 +1,7 @@
-#include <iostream>
 
-int main (){
-    int n = -99991;
+#include <iostream>
+// variant 6
+int MostFrequentDigit (int n){
     int arr[10];
     _asm{
         mov ecx, 10
@@ -45,5 +45,45 @@ int main (){
     endlup2:
         mov n, ebx
     }
-    std::cout << n;
+    return n;
+}
+// variant 9
+int DeleteAll3And1 (int n){
+    _asm{
+        mov ebx, n
+        mov ecx, 1
+    lup:
+        cmp ebx, 0
+        je endlup
+        xor edx, edx
+        mov eax, ebx
+        mov ebx, 10
+        div ebx
+        mov ebx, eax
+        cmp edx, 3
+        je lup
+        cmp edx, 1
+        je lup
+        inc ecx
+        push edx
+        jmp lup
+    endlup:
+        mov eax, 0
+        mov esi, 1
+    lup2:
+        cmp esi, ecx
+        jge endlup2
+        mov eax, ebx
+        mov ebx, 10
+        xor edx, edx
+        mul ebx
+        pop ebx
+        add eax, ebx
+        mov ebx, eax
+        inc esi
+        jmp lup2
+    endlup2:
+        mov n, eax
+    }
+    return n;
 }
