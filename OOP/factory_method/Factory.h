@@ -1,5 +1,5 @@
-#ifndef DZ2_FACTORY_H
-#define DZ2_FACTORY_H
+#ifndef FACTORY_H
+#define FACTORY_H
 #include "Pets.h"
 #include "memory"
 namespace df{
@@ -20,4 +20,4 @@ namespace df{
         }
     };
 }
-#endif //DZ2_FACTORY_H
+#endif
