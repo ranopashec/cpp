@@ -1,5 +1,5 @@
-#ifndef DZ2_PETS_H
-#define DZ2_PETS_H
+#ifndef PETS_H
+#define PETS_H
 #include <string>
 #include "Owner.h"
 #include <memory>
