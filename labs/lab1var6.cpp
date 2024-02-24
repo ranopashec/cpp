@@ -1,7 +1,7 @@
 #include <iostream>
 
 int main (){
-    int n = 1199191;
+    int n = -99991;
     int arr[10];
     _asm{
         mov ecx, 10
@@ -11,6 +11,12 @@ int main (){
         inc esi
     loop lup0
         mov ebx, n
+        cmp ebx, 0
+        jge lup
+        mov eax, ebx
+        mov ebx, -1
+        imul ebx
+        mov ebx, eax
     lup:
         cmp ebx, 0
         je endlup
