@@ -1,4 +1,6 @@
-## Welcome to my c++ studying folder
+## RU ЕСЛИ МНЕ СНИМУТ БАЛЛЫ ЗА ТО, ЧТО ВЫ СКАТАЛИ, Я ЗАКРОЮ РЕПКУ
+
+## ENG Welcome to my c++ studying folder
 There you can find some lines of my buggy code:
 - [arithmetic-algorithms](https://github.com/ranopashec/cpp/tree/main/arithmetic)
 - [OOP](https://github.com/ranopashec/cpp/tree/main/OOP)
