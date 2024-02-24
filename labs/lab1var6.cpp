@@ -1,14 +1,16 @@
 #include <iostream>
 
 int main (){
-    int n = 100001;
+    int n = 1199191;
     int arr[10];
     _asm{
+        mov ecx, 10
+        mov esi, 0
+    lup0:
+        mov arr[4*esi], 0
+        inc esi
+    loop lup0
         mov ebx, n
-        mov eax, n
-        shr eax, 31
-        xor ebx, eax
-        sub ebx, eax
     lup:
         cmp ebx, 0
         je endlup
