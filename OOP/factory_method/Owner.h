@@ -1,5 +1,5 @@
-#ifndef DZ2_OWNER_H
-#define DZ2_OWNER_H
+#ifndef OWNER_H
+#define OWNER_H
 #include <string>
 #include <vector>
 #include "Pets.h"
@@ -21,4 +21,4 @@ public:
     }
 };
 
-#endif //DZ2_OWNER_H
+#endif 
