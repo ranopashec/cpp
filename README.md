@@ -5,7 +5,7 @@ There you can find some lines of my buggy code:
 - [arithmetic-algorithms](https://github.com/ranopashec/cpp/tree/main/arithmetic)
 - [OOP](https://github.com/ranopashec/cpp/tree/main/OOP)
 - [useful code](https://github.com/ranopashec/cpp/tree/main/useful)
-- [assembly](https://github.com/ranopashec/cpp/tree/main/labs)
+- [assembly](https://github.com/ranopashec/cpp/tree/main/assembly)
 
 ### links, that I use to study:
 - [text course](https://www.learncpp.com)
