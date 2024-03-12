@@ -1,5 +1,5 @@
-#ifndef KDEQUE_H
-#define KDEQUE_H
+#ifndef KDEQUE_HPP
+#define KDEQUE_HPP
 #include "memory"
 #include <iostream>
 #include <vector>
