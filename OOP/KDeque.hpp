@@ -1,6 +1,6 @@
 #ifndef KDEQUE_HPP
 #define KDEQUE_HPP
-#include "memory"
+#include <memory>
 #include <iostream>
 #include <vector>
 #include <iterator>
