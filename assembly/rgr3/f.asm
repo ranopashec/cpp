@@ -311,8 +311,7 @@
 			br:dword,
 			answ:dword
 
-		mov eax, ecx
-		mov n, eax
+		mov n, ecx
 		mov eax, edx
 		mov m, eax
 		add eax, n
