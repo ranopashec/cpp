@@ -1,5 +1,5 @@
 #include <iostream>
-#include "PetGroup.h"
+#include "PetGroup.hpp"
 /*
  * Преобразовать решение задания лабораторной работы No1
  * (в соответствии с вашим вариантом) с использованием паттерна Composite,
