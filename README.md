@@ -1,7 +1,12 @@
-### Resources to learn about c++ language:
-- [text course](https://www.learncpp.com)
-- [youtube channel](https://www.youtube.com/playlist?list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb)
-- [reference](https://en.cppreference.com/w/)
-- [reference](https://cplusplus.com/reference/)
-- [reference](https://books.goalkicker.com/CPlusPlusBook/)
+# FAQ
+### Q: Where do you learn c++ lang?
+#### A: 
+- [learncpp](https://www.learncpp.com)
+- Cherno youtube
+### Q: What reference do you use?
+#### A:
+- [cppreference](https://en.cppreference.com/w/)
+- [cplusplus](https://cplusplus.com/reference/)
+
+
 
