@@ -271,7 +271,7 @@ public:
         return tmp;
     }
 
-    template <typename = std::enable_if_t<(N == M)>>
+    template <bool b = N == M, typename = std::enable_if_t<(b)>>
     Field trace(){
         Field res = 0;
         for (size_t i = 0; i < M; ++i) {
